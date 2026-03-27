@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Data Analyst Proposal | Ebenezer Osei for Harver</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --hv-black: #1a1a1a;
+            --hv-peach: #ff6b4a;
+            --hv-peach-dark: #e85a3a;
+            --hv-coral: #ff8c6b;
+            --hv-navy: #0f172a;
+            --hv-indigo: #4f46e5;
+            --hv-teal: #14b8a6;
+            --hv-green: #22c55e;
+            --hv-amber: #f59e0b;
+            --hv-light: #fafafa;
+            --hv-gray: #6b7280;
+            --hv-dark: #111827;
+            --hv-peach-light: #fff5f2;
+            --hv-indigo-light: #eef2ff;
+            --hv-teal-light: #f0fdfa;
+            --hv-amber-light: #fffbeb;
+            --gradient-primary: linear-gradient(135deg, var(--hv-black) 0%, #2d1b4e 50%, var(--hv-peach-dark) 100%);
+            --gradient-warm: linear-gradient(135deg, var(--hv-peach) 0%, var(--hv-coral) 100%);
+            --gradient-cool: linear-gradient(135deg, var(--hv-indigo) 0%, var(--hv-teal) 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--hv-dark);
+            background: var(--hv-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Navigation ── */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,107,74,0.08);
+            transition: box-shadow 0.3s;
+        }
+        .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .nav-logo-mark {
+            height: 32px;
+            display: flex; align-items: center;
+            font-weight: 900; font-size: 1.15rem;
+            color: var(--hv-black);
+            letter-spacing: -0.03em;
+        }
+        .nav-logo-mark .hv-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            background: var(--hv-peach);
+            border-radius: 50%;
+            margin-left: 1px;
+            margin-bottom: -1px;
+        }
+        .nav-logo-text {
+            font-size: 0.8rem; color: var(--hv-gray);
+            font-weight: 500;
+        }
+        .nav-logo-text strong { color: var(--hv-black); font-weight: 700; }
+        .nav-links { display: flex; gap: 0.25rem; }
+        .nav-links a {
+            color: var(--hv-gray); text-decoration: none;
+            font-size: 0.8rem; font-weight: 500;
+            padding: 0.5rem 0.85rem; border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--hv-peach); background: var(--hv-peach-light);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255,107,74,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79,70,229,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 70%);
+        }
+        /* Zigzag pattern (Harver brand element) */
+        .hero-zigzag {
+            position: absolute;
+            right: -40px; top: 50%;
+            transform: translateY(-50%);
+            width: 300px; height: 600px;
+            opacity: 0.04;
+        }
+        .hero-zigzag svg { width: 100%; height: 100%; }
+        .hero-dots {
+            position: absolute;
+            left: 5%; bottom: 10%;
+            opacity: 0.05;
+        }
+        .hero-grid {
+            position: absolute; inset: 0; opacity: 0.03;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 900px; text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.4rem 1rem; border-radius: 50px;
+            color: rgba(255,255,255,0.9); font-size: 0.75rem;
+            font-weight: 500; margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--hv-peach);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800; color: white;
+            line-height: 1.15; margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 .accent {
+            background: var(--gradient-warm);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.1rem; color: rgba(255,255,255,0.75);
+            max-width: 680px; margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--hv-peach); color: white;
+            padding: 0.85rem 2rem; border-radius: 10px;
+            font-weight: 600; font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; border: none;
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,107,74,0.3);
+        }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3rem;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat .num {
+            font-size: 2rem; font-weight: 800; color: var(--hv-peach);
+        }
+        .hero-stat .label {
+            font-size: 0.75rem; color: rgba(255,255,255,0.5);
+            font-weight: 500; margin-top: 0.25rem;
+        }
+
+        /* ── Sections ── */
+        section { padding: 5rem 2rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 0.35rem 0.85rem; border-radius: 50px;
+            margin-bottom: 0.75rem;
+        }
+        .section-label.peach { color: var(--hv-peach); background: var(--hv-peach-light); }
+        .section-label.indigo { color: var(--hv-indigo); background: var(--hv-indigo-light); }
+        .section-label.teal { color: var(--hv-teal); background: var(--hv-teal-light); }
+        .section-label.amber { color: #b45309; background: var(--hv-amber-light); }
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800; color: var(--hv-dark);
+            line-height: 1.2; margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            font-size: 1rem; color: var(--hv-gray);
+            max-width: 600px; margin-bottom: 2.5rem;
+        }
+
+        /* ── Cards Grid ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+        .card-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; margin-bottom: 1rem;
+        }
+        .card-icon.peach { background: var(--hv-peach-light); }
+        .card-icon.indigo { background: var(--hv-indigo-light); }
+        .card-icon.teal { background: var(--hv-teal-light); }
+        .card-icon.amber { background: var(--hv-amber-light); }
+        .card h3 {
+            font-size: 1.05rem; font-weight: 700;
+            margin-bottom: 0.5rem; color: var(--hv-dark);
+        }
+        .card p {
+            font-size: 0.88rem; color: var(--hv-gray);
+            line-height: 1.6;
+        }
+
+        /* ── Pipeline Diagram ── */
+        .pipeline-diagram {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.04);
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+        .pipeline-flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            overflow-x: auto;
+        }
+        .pipeline-step {
+            flex: 1;
+            min-width: 160px;
+            padding: 1.25rem;
+            text-align: center;
+            position: relative;
+            background: var(--hv-light);
+            border-radius: 12px;
+            margin: 0 0.35rem;
+        }
+        .pipeline-step::after {
+            content: '';
+            position: absolute;
+            right: -12px; top: 50%;
+            transform: translateY(-50%);
+            width: 0; height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 10px solid var(--hv-peach);
+            opacity: 0.4;
+            z-index: 2;
+        }
+        .pipeline-step:last-child::after { display: none; }
+        .ps-num {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem; font-weight: 800;
+            color: white;
+            margin: 0 auto 0.6rem;
+        }
+        .pipeline-step:nth-child(1) .ps-num { background: var(--hv-peach); }
+        .pipeline-step:nth-child(2) .ps-num { background: var(--hv-indigo); }
+        .pipeline-step:nth-child(3) .ps-num { background: var(--hv-teal); }
+        .pipeline-step:nth-child(4) .ps-num { background: var(--hv-amber); }
+        .pipeline-step:nth-child(5) .ps-num { background: var(--hv-green); }
+        .ps-title {
+            font-size: 0.82rem; font-weight: 700;
+            color: var(--hv-dark); margin-bottom: 0.3rem;
+        }
+        .ps-desc {
+            font-size: 0.7rem; color: var(--hv-gray);
+            line-height: 1.4;
+        }
+
+        /* ── Dashboard Section ── */
+        .dashboard-section {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.04);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .dash-header {
+            display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 1.5rem;
+            flex-wrap: wrap; gap: 1rem;
+        }
+        .dash-header h3 {
+            font-size: 1.1rem; font-weight: 700;
+        }
+        .dash-tabs {
+            display: flex; gap: 0.25rem;
+            background: var(--hv-light);
+            padding: 0.25rem; border-radius: 8px;
+        }
+        .dash-tab {
+            padding: 0.4rem 1rem; border-radius: 6px;
+            font-size: 0.78rem; font-weight: 500;
+            border: none; cursor: pointer;
+            background: transparent; color: var(--hv-gray);
+            transition: all 0.2s;
+        }
+        .dash-tab.active {
+            background: white; color: var(--hv-peach);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem; margin-bottom: 1.5rem;
+        }
+        .kpi {
+            background: var(--hv-light);
+            border-radius: 12px; padding: 1.25rem;
+        }
+        .kpi-label {
+            font-size: 0.72rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--hv-gray); margin-bottom: 0.4rem;
+        }
+        .kpi-value {
+            font-size: 1.8rem; font-weight: 800;
+            color: var(--hv-dark);
+        }
+        .kpi-change {
+            font-size: 0.75rem; font-weight: 600;
+            margin-top: 0.2rem;
+        }
+        .kpi-change.up { color: #22c55e; }
+        .kpi-change.down { color: #ef4444; }
+        .kpi-change.neutral { color: var(--hv-indigo); }
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 1.25rem;
+        }
+        .chart-box {
+            background: var(--hv-light);
+            border-radius: 12px; padding: 1.25rem;
+        }
+        .chart-box h4 {
+            font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 1rem; color: var(--hv-dark);
+        }
+        .chart-container {
+            position: relative;
+            height: 260px;
+        }
+
+        /* ── Roadmap ── */
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .roadmap-phase {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        .roadmap-phase::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .roadmap-phase.p1::before { background: var(--hv-peach); }
+        .roadmap-phase.p2::before { background: var(--hv-indigo); }
+        .roadmap-phase.p3::before { background: var(--hv-teal); }
+        .phase-label {
+            font-size: 0.68rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+        .p1 .phase-label { color: var(--hv-peach); }
+        .p2 .phase-label { color: var(--hv-indigo); }
+        .p3 .phase-label { color: var(--hv-teal); }
+        .roadmap-phase h4 {
+            font-size: 1rem; font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .roadmap-phase ul {
+            list-style: none; padding: 0;
+        }
+        .roadmap-phase li {
+            font-size: 0.82rem; color: var(--hv-gray);
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .roadmap-phase li::before {
+            content: '';
+            position: absolute; left: 0; top: 0.65rem;
+            width: 6px; height: 6px; border-radius: 50%;
+        }
+        .p1 li::before { background: var(--hv-peach); }
+        .p2 li::before { background: var(--hv-indigo); }
+        .p3 li::before { background: var(--hv-teal); }
+
+        /* ── Value Alignment ── */
+        .alignment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .align-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex; gap: 1rem;
+        }
+        .align-icon {
+            width: 40px; height: 40px; min-width: 40px;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.1rem;
+        }
+        .align-card h4 {
+            font-size: 0.92rem; font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .align-card p {
+            font-size: 0.82rem; color: var(--hv-gray);
+            line-height: 1.6;
+        }
+        .align-tag {
+            display: inline-block;
+            font-size: 0.68rem; font-weight: 600;
+            padding: 0.2rem 0.6rem; border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        .align-tag.peach { background: var(--hv-peach-light); color: var(--hv-peach); }
+        .align-tag.indigo { background: var(--hv-indigo-light); color: var(--hv-indigo); }
+        .align-tag.teal { background: var(--hv-teal-light); color: var(--hv-teal); }
+
+        /* ── Savings Calculator ── */
+        .calc-section {
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .calc-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 90% 10%, rgba(255,107,74,0.15), transparent 50%);
+        }
+        .calc-inner { position: relative; z-index: 2; }
+        .calc-section h3 {
+            font-size: 1.4rem; font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .calc-section > .calc-inner > p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem; margin-bottom: 1.5rem;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.25rem;
+        }
+        .calc-input-group label {
+            display: block;
+            font-size: 0.75rem; font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: rgba(255,255,255,0.8);
+        }
+        .calc-input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-size: 1rem; font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+        .calc-input:focus {
+            outline: none;
+            border-color: var(--hv-peach);
+        }
+        .calc-input::placeholder { color: rgba(255,255,255,0.3); }
+        .calc-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .calc-result { text-align: center; }
+        .calc-result .val {
+            font-size: 1.8rem; font-weight: 800;
+            color: var(--hv-peach);
+        }
+        .calc-result .lbl {
+            font-size: 0.72rem; color: rgba(255,255,255,0.5);
+            margin-top: 0.2rem;
+        }
+
+        /* ── Insight Callout ── */
+        .insight-callout {
+            background: linear-gradient(135deg, var(--hv-peach-light) 0%, var(--hv-indigo-light) 100%);
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-top: 2rem;
+            display: flex; gap: 1rem; align-items: flex-start;
+            border-left: 4px solid var(--hv-peach);
+        }
+        .insight-callout .ic-icon {
+            font-size: 1.5rem; min-width: 36px;
+        }
+        .insight-callout h4 {
+            font-size: 0.95rem; font-weight: 700;
+            margin-bottom: 0.3rem; color: var(--hv-peach-dark);
+        }
+        .insight-callout p {
+            font-size: 0.85rem; color: var(--hv-gray);
+            line-height: 1.6;
+        }
+
+        /* ── Profile ── */
+        .profile-strip {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex; align-items: center; gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .profile-avatar {
+            width: 72px; height: 72px;
+            border-radius: 16px;
+            background: var(--gradient-primary);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.6rem; font-weight: 800;
+        }
+        .profile-info h3 {
+            font-size: 1.2rem; font-weight: 700;
+        }
+        .profile-info p {
+            font-size: 0.85rem; color: var(--hv-gray);
+        }
+        .profile-links {
+            margin-left: auto;
+            display: flex; gap: 0.5rem;
+        }
+        .profile-link {
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.78rem; font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255,107,74,0.2);
+            color: var(--hv-peach);
+            transition: all 0.2s;
+        }
+        .profile-link:hover {
+            background: var(--hv-peach);
+            color: white;
+        }
+        .profile-link.primary {
+            background: var(--hv-peach);
+            color: white; border-color: var(--hv-peach);
+        }
+        .profile-link.primary:hover {
+            background: var(--hv-peach-dark);
+            border-color: var(--hv-peach-dark);
+        }
+
+        /* ── Values ── */
+        .values-bar {
+            display: flex; gap: 1rem;
+            margin-top: 2rem;
+        }
+        .value-pill {
+            flex: 1;
+            background: white;
+            border-radius: 14px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+        .value-pill:hover { transform: translateY(-2px); }
+        .value-pill .vp-icon {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 0.6rem;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+        }
+        .value-pill:nth-child(1) .vp-icon { background: var(--hv-peach-light); }
+        .value-pill:nth-child(2) .vp-icon { background: var(--hv-indigo-light); }
+        .value-pill:nth-child(3) .vp-icon { background: var(--hv-teal-light); }
+        .value-pill h5 {
+            font-size: 0.82rem; font-weight: 700;
+            color: var(--hv-dark);
+            margin-bottom: 0.15rem;
+        }
+        .value-pill p {
+            font-size: 0.7rem; color: var(--hv-gray);
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.82rem;
+        }
+        .data-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            background: var(--hv-light);
+            font-weight: 600;
+            color: var(--hv-dark);
+            border-bottom: 2px solid rgba(0,0,0,0.06);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .data-table td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            color: var(--hv-gray);
+        }
+        .data-table tr:hover td {
+            background: rgba(255,107,74,0.02);
+        }
+        .status-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            margin-right: 0.4rem;
+        }
+        .status-dot.high { background: #22c55e; }
+        .status-dot.med { background: #f59e0b; }
+        .status-dot.low { background: #ef4444; }
+
+        /* ── CTA / Footer ── */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .cta-section h2 {
+            font-size: 2rem; font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+        .cta-section p {
+            color: var(--hv-gray);
+            max-width: 500px; margin: 0 auto 1.5rem;
+        }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.85rem 2rem; border-radius: 10px;
+            font-weight: 600; font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none; cursor: pointer;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--hv-gray);
+            font-size: 0.78rem;
+            border-top: 1px solid rgba(0,0,0,0.04);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .charts-row { grid-template-columns: 1fr; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .calc-results { grid-template-columns: 1fr; }
+            .alignment-grid { grid-template-columns: 1fr; }
+            .pipeline-flow { flex-direction: column; }
+            .pipeline-step::after { display: none; }
+            .values-bar { flex-direction: column; }
+            section { padding: 3rem 1.25rem; }
+        }
+
+        /* ── Animations ── */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1; transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <div class="nav-logo">
+            <div class="nav-logo-mark">harver<span class="hv-dot"></span></div>
+            <div class="nav-logo-text">&nbsp;&nbsp;Prepared for <strong>Harver Data Science Team</strong></div>
+        </div>
+        <div class="nav-links">
+            <a href="#landscape">Landscape</a>
+            <a href="#pipeline">Outcome Studies</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#savings">ROI</a>
+            <a href="#alignment">Why Me</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Strategic Proposal for Senior Data Analyst &mdash; Data Science Team
+        </div>
+        <h1>
+            Proving Assessment ROI with<br>
+            <span class="accent">Predictive Validity &amp; Data Science</span>
+        </h1>
+        <p>
+            A proactive demonstration of how I'd execute outcome studies, build predictive models, and translate complex assessment data into compelling client insights &mdash; prepared exclusively for Harver.
+        </p>
+        <a href="#landscape" class="hero-cta">Explore the Proposal &darr;</a>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">100M+</div>
+                <div class="label">Candidates Processed<br>on Harver's Platform</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">50%</div>
+                <div class="label">Improvement in Quality<br>of Hire with AI Assessments</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">340%</div>
+                <div class="label">Avg. ROI on AI-Powered<br>Recruitment Tools</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Current Landscape -->
+<section id="landscape">
+    <div class="section-inner">
+        <span class="section-label peach">Industry Analysis</span>
+        <h2 class="section-title">The 2026 Talent Assessment Analytics Landscape</h2>
+        <p class="section-subtitle">
+            Key trends shaping how assessment providers prove ROI and drive data-informed hiring decisions for enterprise clients.
+        </p>
+
+        <div class="cards-grid fade-up">
+            <div class="card">
+                <div class="card-icon peach">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Predictive Validity is Table Stakes</h3>
+                <p>Organizations using validated assessments see 67% better performance predictions and 39% lower turnover. Fortune 500 clients now demand evidence-based outcome studies before renewing contracts.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon indigo">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>ML Models Drive Client Retention</h3>
+                <p>Random Forest and XGBoost models predicting attrition and performance from assessment scores are now standard deliverables. Clients scoring in the top 20% show 35% higher satisfaction ratings.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon teal">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Fairness &amp; Adverse Impact</h3>
+                <p>EEOC compliance is non-negotiable. 82% of companies now use pre-employment assessments, making disparate impact analysis a critical deliverable alongside every validity study.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon amber">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Quality of Hire as North Star</h3>
+                <p>89% of TA professionals say quality of hire will become the key metric, yet only 25% can measure it effectively. This gap is exactly where outcome studies deliver transformational value.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon peach">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Continuous Validation Loops</h3>
+                <p>The most advanced assessment providers establish continuous feedback loops &mdash; post-hire performance data re-validates and refines predictive models over time, improving accuracy with each cycle.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon indigo">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <h3>I-O Psychology Meets Data Science</h3>
+                <p>Harver's 30+ I-O psychologists and data scientists create a unique intersection. The Senior Data Analyst bridges rigorous psychometric methodology with modern ML techniques at scale.</p>
+            </div>
+        </div>
+
+        <div class="insight-callout fade-up">
+            <div class="ic-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </div>
+            <div>
+                <h4>Why This Role Matters</h4>
+                <p>With 1,300+ enterprise clients and 100M+ candidates processed, every outcome study directly impacts contract renewals worth millions. A Senior Data Analyst who can execute validity studies end-to-end &mdash; from messy HRIS data intake to board-ready ROI narratives &mdash; is the engine that proves Harver's <strong>"Better Talent Decisions. Faster."</strong> promise is real.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Outcome Study Pipeline -->
+<section id="pipeline" style="background: white;">
+    <div class="section-inner">
+        <span class="section-label indigo">Technical Vision</span>
+        <h2 class="section-title">End-to-End Outcome Study Pipeline</h2>
+        <p class="section-subtitle">
+            How I'd architect the data flow from raw client data through validation to client-ready deliverables.
+        </p>
+
+        <div class="pipeline-diagram fade-up">
+            <div class="pipeline-flow">
+                <div class="pipeline-step">
+                    <div class="ps-num">1</div>
+                    <div class="ps-title">Client Data Intake</div>
+                    <div class="ps-desc">Ingest performance, retention, demographic &amp; funnel data from HRIS/ATS</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="ps-num">2</div>
+                    <div class="ps-title">Clean &amp; Match</div>
+                    <div class="ps-desc">Standardize formats, validate quality, match to Harver assessment records</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="ps-num">3</div>
+                    <div class="ps-title">Statistical Analysis</div>
+                    <div class="ps-desc">Concurrent &amp; predictive validity, regression, adverse impact analysis</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="ps-num">4</div>
+                    <div class="ps-title">ML Modeling</div>
+                    <div class="ps-desc">Random Forest, XGBoost for performance &amp; attrition prediction</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="ps-num">5</div>
+                    <div class="ps-title">Client Delivery</div>
+                    <div class="ps-desc">ROI reports, visualizations &amp; actionable recommendations</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Harver Values -->
+        <div class="values-bar fade-up">
+            <div class="value-pill">
+                <div class="vp-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h5>Transparent</h5>
+                <p>Open, honest, accountable environment</p>
+            </div>
+            <div class="value-pill">
+                <div class="vp-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <h5>Collaborative</h5>
+                <p>Every individual brings unique strengths</p>
+            </div>
+            <div class="value-pill">
+                <div class="vp-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h5>Curious</h5>
+                <p>Continuous learning &amp; innovation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Dashboard -->
+<section id="dashboard">
+    <div class="section-inner">
+        <span class="section-label peach">Sample Deliverable</span>
+        <h2 class="section-title">Predictive Validity Study Dashboard</h2>
+        <p class="section-subtitle">
+            A sample of the kind of client-ready analytics I build &mdash; translating assessment data into ROI narratives that drive contract renewals.
+        </p>
+
+        <div class="dashboard-section fade-up" style="border: 2px solid rgba(255,107,74,0.08);">
+            <div class="dash-header">
+                <h3>Fortune 500 Client: Contact Center Assessment Outcomes</h3>
+                <div class="dash-tabs">
+                    <button class="dash-tab active" onclick="switchView('validity')">Validity</button>
+                    <button class="dash-tab" onclick="switchView('fairness')">Fairness</button>
+                    <button class="dash-tab" onclick="switchView('roi')">ROI Impact</button>
+                </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-row">
+                <div class="kpi">
+                    <div class="kpi-label">Sample Size (N)</div>
+                    <div class="kpi-value">4,218</div>
+                    <div class="kpi-change neutral">Concurrent + Predictive</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Validity Coefficient (r)</div>
+                    <div class="kpi-value">.34</div>
+                    <div class="kpi-change up">&uarr; Strong criterion validity</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">90-Day Attrition Drop</div>
+                    <div class="kpi-value">-42%</div>
+                    <div class="kpi-change up">Top quintile vs. bottom</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Adverse Impact Ratio</div>
+                    <div class="kpi-value">0.92</div>
+                    <div class="kpi-change up">&gt; 4/5 rule &mdash; compliant</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Model AUC (XGBoost)</div>
+                    <div class="kpi-value">.81</div>
+                    <div class="kpi-change up">Strong discrimination</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-row">
+                <div class="chart-box">
+                    <h4>Assessment Score Quintile vs. Performance Rating</h4>
+                    <div class="chart-container">
+                        <canvas id="validityChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <h4>90-Day Retention by Assessment Score Band</h4>
+                    <div class="chart-container">
+                        <canvas id="retentionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Results Table -->
+            <div style="margin-top: 1.25rem;">
+                <div class="chart-box">
+                    <h4>Predictive Model: Feature Importance (XGBoost &mdash; Attrition Prediction)</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Importance</th>
+                                <th>Type</th>
+                                <th>Direction</th>
+                                <th>Business Interpretation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="status-dot high"></span>Situational Judgment Score</td>
+                                <td style="color:#22c55e;font-weight:600;">0.31</td>
+                                <td>Assessment</td>
+                                <td>Higher = Lower attrition</td>
+                                <td>Top predictor of 90-day survival</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-dot high"></span>Cognitive Ability Index</td>
+                                <td style="color:#22c55e;font-weight:600;">0.24</td>
+                                <td>Assessment</td>
+                                <td>Higher = Better performance</td>
+                                <td>Correlates with ramp speed</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-dot med"></span>Personality: Conscientiousness</td>
+                                <td style="color:#f59e0b;font-weight:600;">0.18</td>
+                                <td>Assessment</td>
+                                <td>Higher = Lower attrition</td>
+                                <td>Drives schedule adherence</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-dot med"></span>Days Since Application</td>
+                                <td style="color:#f59e0b;font-weight:600;">0.14</td>
+                                <td>Process</td>
+                                <td>Longer = Higher attrition</td>
+                                <td>Speed-to-hire matters</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-dot low"></span>Prior Experience (Years)</td>
+                                <td style="color:#ef4444;font-weight:600;">0.08</td>
+                                <td>Resume</td>
+                                <td>Weak signal</td>
+                                <td>Assessment outperforms resume data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap" style="background: white;">
+    <div class="section-inner">
+        <span class="section-label teal">Implementation Strategy</span>
+        <h2 class="section-title">90-Day Impact Roadmap</h2>
+        <p class="section-subtitle">
+            A phased approach to ramping up on Harver's frameworks, delivering client studies, and scaling process improvements.
+        </p>
+
+        <div class="roadmap fade-up">
+            <div class="roadmap-phase p1">
+                <div class="phase-label">Days 1&ndash;30 &mdash; Ramp &amp; Execute</div>
+                <h4>Learn Frameworks &amp; First Study</h4>
+                <ul>
+                    <li>Master Harver's assessment data schema and validation methodology</li>
+                    <li>Shadow existing outcome studies to learn client data intake workflow</li>
+                    <li>Execute first concurrent validity study with senior Data Scientist oversight</li>
+                    <li>Set up Python/R environment, Looker workspace, and GitHub repos</li>
+                    <li>Build rapport with Client Success team and People Science</li>
+                </ul>
+            </div>
+            <div class="roadmap-phase p2">
+                <div class="phase-label">Days 31&ndash;60 &mdash; Own &amp; Build</div>
+                <h4>Independent Studies &amp; ML Models</h4>
+                <ul>
+                    <li>Run concurrent &amp; predictive validity studies independently (2&ndash;3 clients)</li>
+                    <li>Apply XGBoost/Random Forest models to predict attrition from assessment data</li>
+                    <li>Conduct disparate impact analyses ensuring EEOC compliance</li>
+                    <li>Create reusable Python/R scripts for common data cleaning patterns</li>
+                    <li>Deliver first client-ready outcome report with visualizations</li>
+                </ul>
+            </div>
+            <div class="roadmap-phase p3">
+                <div class="phase-label">Days 61&ndash;90 &mdash; Scale &amp; Innovate</div>
+                <h4>Process Improvement &amp; Thought Leadership</h4>
+                <ul>
+                    <li>Identify repeatable solutions from client escalations and formalize into playbooks</li>
+                    <li>Propose methodology refinements to Data Science team</li>
+                    <li>Build automated data validation pipeline for faster client onboarding</li>
+                    <li>Contribute to team knowledge base and analysis documentation</li>
+                    <li>Present findings to internal stakeholders on study insights and patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="insight-callout fade-up" style="margin-top: 2rem;">
+            <div class="ic-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+                <h4>Immediate Value Unlock</h4>
+                <p>By automating common data cleaning and matching patterns (HRIS format standardization, fuzzy matching for candidate records), I can reduce study turnaround time by <strong>30&ndash;40%</strong> &mdash; enabling the team to handle more concurrent client studies without adding headcount.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROI Calculator -->
+<section id="savings">
+    <div class="section-inner">
+        <span class="section-label amber">Business Impact</span>
+        <h2 class="section-title">Assessment ROI Calculator</h2>
+        <p class="section-subtitle">
+            The kind of interactive tool I'd build for client presentations &mdash; making the business case for Harver's assessments impossible to ignore.
+        </p>
+
+        <div class="calc-section fade-up">
+            <div class="calc-inner">
+                <h3>Client ROI: Predictive Assessment Impact</h3>
+                <p>Adjust the inputs to model the financial impact of Harver's assessment-driven attrition reduction for a volume hiring client.</p>
+                <div class="calc-grid">
+                    <div class="calc-input-group">
+                        <label>Annual Hires</label>
+                        <input type="number" class="calc-input" id="calcHires" value="5000" oninput="updateCalc()">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Current 90-Day Attrition (%)</label>
+                        <input type="number" class="calc-input" id="calcAttrition" value="35" step="0.1" oninput="updateCalc()">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Cost per Bad Hire ($)</label>
+                        <input type="number" class="calc-input" id="calcCost" value="15000" oninput="updateCalc()">
+                    </div>
+                </div>
+                <div class="calc-results">
+                    <div class="calc-result">
+                        <div class="val" id="calcCurrentCost">$26.25M</div>
+                        <div class="lbl">Current Annual Attrition Cost</div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="val" id="calcSavings">$10.50M</div>
+                        <div class="lbl">Projected Savings (40% attrition reduction via assessments)</div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="val" id="calcROI">52.5x</div>
+                        <div class="lbl">ROI on $200K Harver Annual Contract</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Value Alignment -->
+<section id="alignment" style="background: white;">
+    <div class="section-inner">
+        <span class="section-label indigo">Candidate Alignment</span>
+        <h2 class="section-title">Why Ebenezer Osei</h2>
+        <p class="section-subtitle">
+            How my experience, skills, and approach map directly to what this Senior Data Analyst role demands.
+        </p>
+
+        <div class="profile-strip fade-up">
+            <div class="profile-avatar">EO</div>
+            <div class="profile-info">
+                <h3>Ebenezer Osei</h3>
+                <p>Data Analyst &amp; Predictive Analytics Specialist</p>
+            </div>
+            <div class="profile-links">
+                <a href="https://github.com/ebenosei" class="profile-link" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/ebenosei" class="profile-link primary" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="alignment-grid fade-up">
+            <div class="align-card">
+                <div class="align-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div>
+                    <h4>Statistical Foundation &amp; ML</h4>
+                    <p>Strong proficiency in regression, hypothesis testing, correlation analysis, and model evaluation. Hands-on experience applying Random Forest and XGBoost for prediction tasks &mdash; exactly what Harver's outcome studies demand.</p>
+                    <span class="align-tag peach">Regression &bull; ML Models &bull; Model Evaluation</span>
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div>
+                    <h4>Python, R &amp; SQL Proficiency</h4>
+                    <p>Deep expertise across the full data stack: pandas and dplyr for wrangling, SQL for extraction, and visualization libraries (matplotlib, ggplot2, Plotly) for client-ready outputs. GitHub for version-controlled, peer-reviewed workflows.</p>
+                    <span class="align-tag indigo">Python &bull; R &bull; SQL &bull; GitHub</span>
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div>
+                    <h4>Data Cleaning at Enterprise Scale</h4>
+                    <p>Experienced wrangling messy, real-world datasets from enterprise HRIS and ATS systems. I build robust validation pipelines that catch quality issues early and document data specs for reproducibility.</p>
+                    <span class="align-tag teal">Data Quality &bull; ETL &bull; HRIS/ATS Integration</span>
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div>
+                    <h4>Client-Facing Communication</h4>
+                    <p>Strong ability to translate statistical results into business language. I build visualizations and reports that make complex validity studies accessible to non-technical client stakeholders and C-suite executives.</p>
+                    <span class="align-tag peach">Data Storytelling &bull; Client Reports &bull; Presentations</span>
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h4>Fairness &amp; Compliance Mindset</h4>
+                    <p>Understands the weight of adverse impact analysis in hiring. Committed to ensuring assessments are both predictive and fair &mdash; applying the 4/5 rule, analyzing demographic breakdowns, and flagging potential disparities proactively.</p>
+                    <span class="align-tag indigo">EEOC &bull; Adverse Impact &bull; Assessment Fairness</span>
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                    <h4>Proactive &amp; Process-Oriented</h4>
+                    <p>This proposal itself demonstrates my approach: I research deeply, prototype solutions, and deliver before day one. I identify repeatable patterns from one-off requests and formalize them into scalable processes.</p>
+                    <span class="align-tag teal">Self-Directed &bull; Process Design &bull; Knowledge Base</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Let's Put Purpose to Work</h2>
+    <p>I'm ready to bring this level of analytical rigor, client focus, and proactive initiative to Harver's Data Science team from day one.</p>
+    <a href="mailto:ebenezerkofi.osei@gmail.com" class="cta-btn">
+        Get in Touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>Prepared by Ebenezer Osei for Harver &mdash; March 2026</p>
+    <p style="margin-top:0.3rem; font-size:0.7rem; color:#aaa;">
+        Data sources: SHRM AI in HR Study, Deloitte People Analytics, PwC AI Workforce Analysis, Harver Case Studies, Bureau of Labor Statistics
+    </p>
+</footer>
+
+<script>
+// ── Nav scroll effect ──
+window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+// ── Fade-up animations ──
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── Dashboard tab switching ──
+function switchView(view) {
+    document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+}
+
+// ── Calculator ──
+function updateCalc() {
+    const hires = parseFloat(document.getElementById('calcHires').value) || 0;
+    const attrition = parseFloat(document.getElementById('calcAttrition').value) || 0;
+    const cost = parseFloat(document.getElementById('calcCost').value) || 0;
+
+    const currentCost = hires * (attrition / 100) * cost;
+    const savings = currentCost * 0.40; // 40% attrition reduction
+    const roi = savings / 200000; // $200K contract
+
+    document.getElementById('calcCurrentCost').textContent = formatCurrency(currentCost);
+    document.getElementById('calcSavings').textContent = formatCurrency(savings);
+    document.getElementById('calcROI').textContent = roi.toFixed(1) + 'x';
+}
+
+function formatCurrency(val) {
+    if (val >= 1e6) return '$' + (val / 1e6).toFixed(2) + 'M';
+    if (val >= 1e3) return '$' + (val / 1e3).toFixed(0) + 'K';
+    return '$' + val.toFixed(0);
+}
+
+// ── Charts ──
+const chartColors = {
+    peach: '#ff6b4a',
+    indigo: '#4f46e5',
+    teal: '#14b8a6',
+    amber: '#f59e0b',
+    green: '#22c55e',
+    peachLight: 'rgba(255,107,74,0.1)',
+    indigoLight: 'rgba(79,70,229,0.1)',
+};
+
+// Validity Chart - Score Quintile vs Performance
+const validityCtx = document.getElementById('validityChart').getContext('2d');
+new Chart(validityCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Q1 (Lowest)', 'Q2', 'Q3', 'Q4', 'Q5 (Highest)'],
+        datasets: [
+            {
+                label: 'Avg. Performance Rating',
+                data: [2.8, 3.2, 3.6, 4.0, 4.4],
+                backgroundColor: [
+                    'rgba(239,68,68,0.7)',
+                    'rgba(245,158,11,0.7)',
+                    'rgba(79,70,229,0.7)',
+                    'rgba(20,184,166,0.7)',
+                    'rgba(34,197,94,0.7)',
+                ],
+                borderRadius: 8,
+                barThickness: 36,
+            },
+        ],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 5,
+                ticks: {
+                    callback: v => v.toFixed(1),
+                    font: { size: 10, family: 'Inter' },
+                    color: '#999',
+                },
+                grid: { color: 'rgba(0,0,0,0.04)' },
+                title: {
+                    display: true,
+                    text: 'Avg. Performance (1-5)',
+                    font: { size: 10, family: 'Inter', weight: '500' },
+                    color: '#999',
+                },
+            },
+            x: {
+                ticks: { font: { size: 10, family: 'Inter' }, color: '#999' },
+                grid: { display: false },
+                title: {
+                    display: true,
+                    text: 'Assessment Score Quintile',
+                    font: { size: 10, family: 'Inter', weight: '500' },
+                    color: '#999',
+                },
+            },
+        },
+    },
+});
+
+// Retention Chart
+const retentionCtx = document.getElementById('retentionChart').getContext('2d');
+new Chart(retentionCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Top 20% (92%)', 'Middle 60% (78%)', 'Bottom 20% (54%)'],
+        datasets: [{
+            data: [92, 78, 54],
+            backgroundColor: [
+                chartColors.green,
+                chartColors.indigo,
+                'rgba(239,68,68,0.7)',
+            ],
+            borderWidth: 0,
+            spacing: 4,
+            borderRadius: 6,
+        }],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '55%',
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true,
+                    font: { size: 10, family: 'Inter' },
+                    padding: 16,
+                },
+            },
+            tooltip: {
+                callbacks: {
+                    label: ctx => `${ctx.label}: ${ctx.raw}% retained at 90 days`,
+                },
+            },
+        },
+    },
+});
+</script>
+
+</body>
+</html>
