@@ -18,7 +18,7 @@
             --hv-peach-dark: #ffb899;
             --hv-green: #22c55e;
             --hv-amber: #f59e0b;
-            --hv-light: #ffffff;
+            --hv-light: #f9fafb;
             --hv-gray: #6b7280;
             --hv-dark: #111827;
             --hv-teal-light: #e6faf6;
@@ -35,7 +35,7 @@
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             color: var(--hv-dark);
-            background: var(--hv-light);
+            background: #f9fafb;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -49,7 +49,7 @@
             border-bottom: 1px solid rgba(0,191,166,0.08);
             transition: box-shadow 0.3s;
         }
-        .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav.scrolled { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
         .nav-inner {
             max-width: 1200px; margin: 0 auto;
             padding: 0.75rem 2rem;
@@ -101,9 +101,8 @@
             content: '';
             position: absolute; inset: 0;
             background:
-                radial-gradient(circle at 20% 80%, rgba(0,191,166,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,212,194,0.2) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 70%);
+                radial-gradient(circle at 20% 80%, rgba(0,191,166,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,212,194,0.1) 0%, transparent 50%);
         }
         /* Zigzag pattern (Harver brand element) */
         .hero-zigzag {
@@ -134,7 +133,7 @@
             display: inline-flex; align-items: center; gap: 0.5rem;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.15);
-            padding: 0.4rem 1rem; border-radius: 50px;
+            padding: 0.4rem 1rem; border-radius: 6px;
             color: rgba(255,255,255,0.9); font-size: 0.75rem;
             font-weight: 500; margin-bottom: 1.5rem;
             backdrop-filter: blur(10px);
@@ -165,15 +164,15 @@
         .hero-cta {
             display: inline-flex; align-items: center; gap: 0.5rem;
             background: var(--hv-teal); color: var(--hv-navy);
-            padding: 0.85rem 2rem; border-radius: 10px;
+            padding: 0.85rem 2rem; border-radius: 8px;
             font-weight: 600; font-size: 0.95rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer; border: none;
         }
         .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,191,166,0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,191,166,0.3);
         }
         .hero-stats {
             display: flex; justify-content: center; gap: 3rem;
@@ -197,7 +196,7 @@
             display: inline-flex; align-items: center; gap: 0.4rem;
             font-size: 0.7rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
-            padding: 0.35rem 0.85rem; border-radius: 50px;
+            padding: 0.35rem 0.85rem; border-radius: 6px;
             margin-bottom: 0.75rem;
         }
         .section-label.teal { color: var(--hv-teal); background: var(--hv-teal-light); }
@@ -223,18 +222,18 @@
         }
         .card {
             background: white;
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 1.75rem;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
         .card-icon {
             width: 44px; height: 44px;
-            border-radius: 12px;
+            border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.3rem; margin-bottom: 1rem;
         }
@@ -254,8 +253,8 @@
         /* ── Pipeline Diagram ── */
         .pipeline-diagram {
             background: white;
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
             padding: 2.5rem;
             margin-top: 2rem;
         }
@@ -272,7 +271,7 @@
             text-align: center;
             position: relative;
             background: var(--hv-light);
-            border-radius: 12px;
+            border-radius: 8px;
             margin: 0 0.35rem;
         }
         .pipeline-step::after {
@@ -313,8 +312,8 @@
         /* ── Dashboard Section ── */
         .dashboard-section {
             background: white;
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
             padding: 2rem;
             margin-top: 2rem;
         }
@@ -349,7 +348,7 @@
         }
         .kpi {
             background: var(--hv-light);
-            border-radius: 12px; padding: 1.25rem;
+            border-radius: 8px; padding: 1.25rem;
         }
         .kpi-label {
             font-size: 0.72rem; font-weight: 600;
@@ -374,7 +373,7 @@
         }
         .chart-box {
             background: var(--hv-light);
-            border-radius: 12px; padding: 1.25rem;
+            border-radius: 8px; padding: 1.25rem;
         }
         .chart-box h4 {
             font-size: 0.85rem; font-weight: 600;
@@ -394,9 +393,9 @@
         }
         .roadmap-phase {
             background: white;
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
             position: relative;
             overflow: hidden;
         }
@@ -447,14 +446,14 @@
         }
         .align-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 1.5rem;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
             display: flex; gap: 1rem;
         }
         .align-icon {
             width: 40px; height: 40px; min-width: 40px;
-            border-radius: 10px;
+            border-radius: 8px;
             background: var(--gradient-primary);
             display: flex; align-items: center; justify-content: center;
             color: white; font-size: 1.1rem;
@@ -480,7 +479,7 @@
         /* ── Savings Calculator ── */
         .calc-section {
             background: var(--gradient-primary);
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 2.5rem;
             margin-top: 3rem;
             color: white;
@@ -547,8 +546,8 @@
 
         /* ── Insight Callout ── */
         .insight-callout {
-            background: linear-gradient(135deg, var(--hv-teal-light) 0%, var(--hv-navy-light) 100%);
-            border-radius: 16px;
+            background: var(--hv-teal-light);
+            border-radius: 8px;
             padding: 1.75rem;
             margin-top: 2rem;
             display: flex; gap: 1rem; align-items: flex-start;
@@ -569,16 +568,16 @@
         /* ── Profile ── */
         .profile-strip {
             background: white;
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 2rem;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
             display: flex; align-items: center; gap: 1.5rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
         .profile-avatar {
             width: 72px; height: 72px;
-            border-radius: 16px;
+            border-radius: 10px;
             background: var(--gradient-primary);
             display: flex; align-items: center; justify-content: center;
             color: white; font-size: 1.6rem; font-weight: 800;
@@ -623,13 +622,13 @@
         .value-pill {
             flex: 1;
             background: white;
-            border-radius: 14px;
+            border-radius: 8px;
             padding: 1.25rem 1rem;
             text-align: center;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
             transition: transform 0.2s;
         }
-        .value-pill:hover { transform: translateY(-2px); }
+        .value-pill:hover { transform: translateY(-1px); }
         .value-pill .vp-icon {
             width: 40px; height: 40px;
             border-radius: 50%;
@@ -702,15 +701,15 @@
             display: inline-flex; align-items: center; gap: 0.5rem;
             background: var(--gradient-primary);
             color: white;
-            padding: 0.85rem 2rem; border-radius: 10px;
+            padding: 0.85rem 2rem; border-radius: 8px;
             font-weight: 600; font-size: 0.95rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
             border: none; cursor: pointer;
         }
         .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         .footer {
             text-align: center;
@@ -736,7 +735,7 @@
 
         /* ── Animations ── */
         .fade-up {
-            opacity: 0; transform: translateY(30px);
+            opacity: 0; transform: translateY(16px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .fade-up.visible {
