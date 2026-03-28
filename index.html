@@ -10,24 +10,24 @@
 
         :root {
             --hv-black: #1a1a1a;
-            --hv-peach: #ff6b4a;
-            --hv-peach-dark: #e85a3a;
-            --hv-coral: #ff8c6b;
-            --hv-navy: #0f172a;
-            --hv-indigo: #4f46e5;
-            --hv-teal: #14b8a6;
+            --hv-teal: #00bfa6;
+            --hv-teal-dark: #00a892;
+            --hv-cyan: #00d4aa;
+            --hv-navy: #0a1628;
+            --hv-peach: #ffd4c2;
+            --hv-peach-dark: #ffb899;
             --hv-green: #22c55e;
             --hv-amber: #f59e0b;
-            --hv-light: #fafafa;
+            --hv-light: #ffffff;
             --hv-gray: #6b7280;
             --hv-dark: #111827;
-            --hv-peach-light: #fff5f2;
-            --hv-indigo-light: #eef2ff;
-            --hv-teal-light: #f0fdfa;
+            --hv-teal-light: #e6faf6;
+            --hv-peach-light: #fff5f0;
+            --hv-navy-light: #e8ecf2;
             --hv-amber-light: #fffbeb;
-            --gradient-primary: linear-gradient(135deg, var(--hv-black) 0%, #2d1b4e 50%, var(--hv-peach-dark) 100%);
-            --gradient-warm: linear-gradient(135deg, var(--hv-peach) 0%, var(--hv-coral) 100%);
-            --gradient-cool: linear-gradient(135deg, var(--hv-indigo) 0%, var(--hv-teal) 100%);
+            --gradient-primary: linear-gradient(135deg, var(--hv-navy) 0%, #162238 50%, #1a3050 100%);
+            --gradient-teal: linear-gradient(135deg, var(--hv-teal) 0%, var(--hv-cyan) 100%);
+            --gradient-warm: linear-gradient(135deg, var(--hv-peach) 0%, #ffe0d0 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +46,7 @@
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,107,74,0.08);
+            border-bottom: 1px solid rgba(0,191,166,0.08);
             transition: box-shadow 0.3s;
         }
         .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
@@ -68,7 +68,7 @@
         .nav-logo-mark .hv-dot {
             display: inline-block;
             width: 8px; height: 8px;
-            background: var(--hv-peach);
+            background: var(--hv-teal);
             border-radius: 50%;
             margin-left: 1px;
             margin-bottom: -1px;
@@ -86,7 +86,7 @@
             transition: all 0.2s;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: var(--hv-peach); background: var(--hv-peach-light);
+            color: var(--hv-teal); background: var(--hv-teal-light);
         }
 
         /* ── Hero ── */
@@ -101,8 +101,8 @@
             content: '';
             position: absolute; inset: 0;
             background:
-                radial-gradient(circle at 20% 80%, rgba(255,107,74,0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(79,70,229,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0,191,166,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,212,194,0.2) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 70%);
         }
         /* Zigzag pattern (Harver brand element) */
@@ -141,7 +141,7 @@
         }
         .hero-badge .dot {
             width: 6px; height: 6px; border-radius: 50%;
-            background: var(--hv-peach);
+            background: var(--hv-teal);
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
@@ -155,10 +155,7 @@
             letter-spacing: -0.02em;
         }
         .hero h1 .accent {
-            background: var(--gradient-warm);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--hv-teal);
         }
         .hero p {
             font-size: 1.1rem; color: rgba(255,255,255,0.75);
@@ -167,7 +164,7 @@
         }
         .hero-cta {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            background: var(--hv-peach); color: white;
+            background: var(--hv-teal); color: var(--hv-navy);
             padding: 0.85rem 2rem; border-radius: 10px;
             font-weight: 600; font-size: 0.95rem;
             text-decoration: none;
@@ -176,7 +173,7 @@
         }
         .hero-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255,107,74,0.3);
+            box-shadow: 0 8px 30px rgba(0,191,166,0.4);
         }
         .hero-stats {
             display: flex; justify-content: center; gap: 3rem;
@@ -186,7 +183,7 @@
         }
         .hero-stat { text-align: center; }
         .hero-stat .num {
-            font-size: 2rem; font-weight: 800; color: var(--hv-peach);
+            font-size: 2rem; font-weight: 800; color: var(--hv-teal);
         }
         .hero-stat .label {
             font-size: 0.75rem; color: rgba(255,255,255,0.5);
@@ -203,9 +200,9 @@
             padding: 0.35rem 0.85rem; border-radius: 50px;
             margin-bottom: 0.75rem;
         }
-        .section-label.peach { color: var(--hv-peach); background: var(--hv-peach-light); }
-        .section-label.indigo { color: var(--hv-indigo); background: var(--hv-indigo-light); }
         .section-label.teal { color: var(--hv-teal); background: var(--hv-teal-light); }
+        .section-label.navy { color: var(--hv-navy); background: var(--hv-navy-light); }
+        .section-label.peach { color: #b87a5e; background: var(--hv-peach-light); }
         .section-label.amber { color: #b45309; background: var(--hv-amber-light); }
         .section-title {
             font-size: clamp(1.8rem, 3vw, 2.4rem);
@@ -241,8 +238,8 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 1.3rem; margin-bottom: 1rem;
         }
-        .card-icon.peach { background: var(--hv-peach-light); }
-        .card-icon.indigo { background: var(--hv-indigo-light); }
+        .card-icon.teal { background: var(--hv-teal-light); }
+        .card-icon.navy { background: var(--hv-navy-light); }
         .card-icon.teal { background: var(--hv-teal-light); }
         .card-icon.amber { background: var(--hv-amber-light); }
         .card h3 {
@@ -286,7 +283,7 @@
             width: 0; height: 0;
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
-            border-left: 10px solid var(--hv-peach);
+            border-left: 10px solid var(--hv-teal);
             opacity: 0.4;
             z-index: 2;
         }
@@ -299,8 +296,8 @@
             color: white;
             margin: 0 auto 0.6rem;
         }
-        .pipeline-step:nth-child(1) .ps-num { background: var(--hv-peach); }
-        .pipeline-step:nth-child(2) .ps-num { background: var(--hv-indigo); }
+        .pipeline-step:nth-child(1) .ps-num { background: var(--hv-teal); }
+        .pipeline-step:nth-child(2) .ps-num { background: var(--hv-navy); }
         .pipeline-step:nth-child(3) .ps-num { background: var(--hv-teal); }
         .pipeline-step:nth-child(4) .ps-num { background: var(--hv-amber); }
         .pipeline-step:nth-child(5) .ps-num { background: var(--hv-green); }
@@ -342,7 +339,7 @@
             transition: all 0.2s;
         }
         .dash-tab.active {
-            background: white; color: var(--hv-peach);
+            background: white; color: var(--hv-teal);
             box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
         .kpi-row {
@@ -369,7 +366,7 @@
         }
         .kpi-change.up { color: #22c55e; }
         .kpi-change.down { color: #ef4444; }
-        .kpi-change.neutral { color: var(--hv-indigo); }
+        .kpi-change.neutral { color: var(--hv-navy); }
         .charts-row {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -408,16 +405,16 @@
             position: absolute; top: 0; left: 0; right: 0;
             height: 3px;
         }
-        .roadmap-phase.p1::before { background: var(--hv-peach); }
-        .roadmap-phase.p2::before { background: var(--hv-indigo); }
+        .roadmap-phase.p1::before { background: var(--hv-teal); }
+        .roadmap-phase.p2::before { background: var(--hv-navy); }
         .roadmap-phase.p3::before { background: var(--hv-teal); }
         .phase-label {
             font-size: 0.68rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.08em;
             margin-bottom: 0.5rem;
         }
-        .p1 .phase-label { color: var(--hv-peach); }
-        .p2 .phase-label { color: var(--hv-indigo); }
+        .p1 .phase-label { color: var(--hv-teal); }
+        .p2 .phase-label { color: var(--hv-navy); }
         .p3 .phase-label { color: var(--hv-teal); }
         .roadmap-phase h4 {
             font-size: 1rem; font-weight: 700;
@@ -437,8 +434,8 @@
             position: absolute; left: 0; top: 0.65rem;
             width: 6px; height: 6px; border-radius: 50%;
         }
-        .p1 li::before { background: var(--hv-peach); }
-        .p2 li::before { background: var(--hv-indigo); }
+        .p1 li::before { background: var(--hv-teal); }
+        .p2 li::before { background: var(--hv-navy); }
         .p3 li::before { background: var(--hv-teal); }
 
         /* ── Value Alignment ── */
@@ -476,9 +473,9 @@
             padding: 0.2rem 0.6rem; border-radius: 4px;
             margin-top: 0.5rem;
         }
-        .align-tag.peach { background: var(--hv-peach-light); color: var(--hv-peach); }
-        .align-tag.indigo { background: var(--hv-indigo-light); color: var(--hv-indigo); }
-        .align-tag.teal { background: var(--hv-teal-light); color: var(--hv-teal); }
+        .align-tag.teal { background: var(--hv-teal-light); color: var(--hv-teal-dark); }
+        .align-tag.navy { background: var(--hv-navy-light); color: var(--hv-navy); }
+        .align-tag.peach { background: var(--hv-peach-light); color: #b87a5e; }
 
         /* ── Savings Calculator ── */
         .calc-section {
@@ -493,7 +490,7 @@
         .calc-section::before {
             content: '';
             position: absolute; inset: 0;
-            background: radial-gradient(circle at 90% 10%, rgba(255,107,74,0.15), transparent 50%);
+            background: radial-gradient(circle at 90% 10%, rgba(0,191,166,0.12), transparent 50%);
         }
         .calc-inner { position: relative; z-index: 2; }
         .calc-section h3 {
@@ -527,7 +524,7 @@
         }
         .calc-input:focus {
             outline: none;
-            border-color: var(--hv-peach);
+            border-color: var(--hv-teal);
         }
         .calc-input::placeholder { color: rgba(255,255,255,0.3); }
         .calc-results {
@@ -541,7 +538,7 @@
         .calc-result { text-align: center; }
         .calc-result .val {
             font-size: 1.8rem; font-weight: 800;
-            color: var(--hv-peach);
+            color: var(--hv-teal);
         }
         .calc-result .lbl {
             font-size: 0.72rem; color: rgba(255,255,255,0.5);
@@ -550,19 +547,19 @@
 
         /* ── Insight Callout ── */
         .insight-callout {
-            background: linear-gradient(135deg, var(--hv-peach-light) 0%, var(--hv-indigo-light) 100%);
+            background: linear-gradient(135deg, var(--hv-teal-light) 0%, var(--hv-navy-light) 100%);
             border-radius: 16px;
             padding: 1.75rem;
             margin-top: 2rem;
             display: flex; gap: 1rem; align-items: flex-start;
-            border-left: 4px solid var(--hv-peach);
+            border-left: 4px solid var(--hv-teal);
         }
         .insight-callout .ic-icon {
             font-size: 1.5rem; min-width: 36px;
         }
         .insight-callout h4 {
             font-size: 0.95rem; font-weight: 700;
-            margin-bottom: 0.3rem; color: var(--hv-peach-dark);
+            margin-bottom: 0.3rem; color: var(--hv-teal-dark);
         }
         .insight-callout p {
             font-size: 0.85rem; color: var(--hv-gray);
@@ -601,21 +598,21 @@
             border-radius: 8px;
             font-size: 0.78rem; font-weight: 600;
             text-decoration: none;
-            border: 1px solid rgba(255,107,74,0.2);
-            color: var(--hv-peach);
+            border: 1px solid rgba(0,191,166,0.15);
+            color: var(--hv-teal);
             transition: all 0.2s;
         }
         .profile-link:hover {
-            background: var(--hv-peach);
+            background: var(--hv-teal);
             color: white;
         }
         .profile-link.primary {
-            background: var(--hv-peach);
-            color: white; border-color: var(--hv-peach);
+            background: var(--hv-teal);
+            color: white; border-color: var(--hv-teal);
         }
         .profile-link.primary:hover {
-            background: var(--hv-peach-dark);
-            border-color: var(--hv-peach-dark);
+            background: var(--hv-teal-dark);
+            border-color: var(--hv-teal-dark);
         }
 
         /* ── Values ── */
@@ -640,8 +637,8 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 1.1rem;
         }
-        .value-pill:nth-child(1) .vp-icon { background: var(--hv-peach-light); }
-        .value-pill:nth-child(2) .vp-icon { background: var(--hv-indigo-light); }
+        .value-pill:nth-child(1) .vp-icon { background: var(--hv-teal-light); }
+        .value-pill:nth-child(2) .vp-icon { background: var(--hv-navy-light); }
         .value-pill:nth-child(3) .vp-icon { background: var(--hv-teal-light); }
         .value-pill h5 {
             font-size: 0.82rem; font-weight: 700;
@@ -676,7 +673,7 @@
             color: var(--hv-gray);
         }
         .data-table tr:hover td {
-            background: rgba(255,107,74,0.02);
+            background: rgba(0,191,166,0.02);
         }
         .status-dot {
             display: inline-block;
@@ -803,7 +800,7 @@
 <!-- Current Landscape -->
 <section id="landscape">
     <div class="section-inner">
-        <span class="section-label peach">Industry Analysis</span>
+        <span class="section-label teal">Industry Analysis</span>
         <h2 class="section-title">The 2026 Talent Assessment Analytics Landscape</h2>
         <p class="section-subtitle">
             Key trends shaping how assessment providers prove ROI and drive data-informed hiring decisions for enterprise clients.
@@ -811,22 +808,22 @@
 
         <div class="cards-grid fade-up">
             <div class="card">
-                <div class="card-icon peach">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                <div class="card-icon teal">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 </div>
                 <h3>Predictive Validity is Table Stakes</h3>
                 <p>Organizations using validated assessments see 67% better performance predictions and 39% lower turnover. Fortune 500 clients now demand evidence-based outcome studies before renewing contracts.</p>
             </div>
             <div class="card">
-                <div class="card-icon indigo">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <div class="card-icon navy">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                 </div>
                 <h3>ML Models Drive Client Retention</h3>
                 <p>Random Forest and XGBoost models predicting attrition and performance from assessment scores are now standard deliverables. Clients scoring in the top 20% show 35% higher satisfaction ratings.</p>
             </div>
             <div class="card">
                 <div class="card-icon teal">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <h3>Fairness &amp; Adverse Impact</h3>
                 <p>EEOC compliance is non-negotiable. 82% of companies now use pre-employment assessments, making disparate impact analysis a critical deliverable alongside every validity study.</p>
@@ -839,15 +836,15 @@
                 <p>89% of TA professionals say quality of hire will become the key metric, yet only 25% can measure it effectively. This gap is exactly where outcome studies deliver transformational value.</p>
             </div>
             <div class="card">
-                <div class="card-icon peach">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <div class="card-icon teal">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                 </div>
                 <h3>Continuous Validation Loops</h3>
                 <p>The most advanced assessment providers establish continuous feedback loops &mdash; post-hire performance data re-validates and refines predictive models over time, improving accuracy with each cycle.</p>
             </div>
             <div class="card">
-                <div class="card-icon indigo">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                <div class="card-icon navy">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
                 </div>
                 <h3>I-O Psychology Meets Data Science</h3>
                 <p>Harver's 30+ I-O psychologists and data scientists create a unique intersection. The Senior Data Analyst bridges rigorous psychometric methodology with modern ML techniques at scale.</p>
@@ -856,7 +853,7 @@
 
         <div class="insight-callout fade-up">
             <div class="ic-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             </div>
             <div>
                 <h4>Why This Role Matters</h4>
@@ -869,7 +866,7 @@
 <!-- Outcome Study Pipeline -->
 <section id="pipeline" style="background: white;">
     <div class="section-inner">
-        <span class="section-label indigo">Technical Vision</span>
+        <span class="section-label navy">Technical Vision</span>
         <h2 class="section-title">End-to-End Outcome Study Pipeline</h2>
         <p class="section-subtitle">
             How I'd architect the data flow from raw client data through validation to client-ready deliverables.
@@ -909,21 +906,21 @@
         <div class="values-bar fade-up">
             <div class="value-pill">
                 <div class="vp-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 </div>
                 <h5>Transparent</h5>
                 <p>Open, honest, accountable environment</p>
             </div>
             <div class="value-pill">
                 <div class="vp-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
                 </div>
                 <h5>Collaborative</h5>
                 <p>Every individual brings unique strengths</p>
             </div>
             <div class="value-pill">
                 <div class="vp-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 </div>
                 <h5>Curious</h5>
                 <p>Continuous learning &amp; innovation</p>
@@ -935,13 +932,13 @@
 <!-- Interactive Dashboard -->
 <section id="dashboard">
     <div class="section-inner">
-        <span class="section-label peach">Sample Deliverable</span>
+        <span class="section-label teal">Sample Deliverable</span>
         <h2 class="section-title">Predictive Validity Study Dashboard</h2>
         <p class="section-subtitle">
             A sample of the kind of client-ready analytics I build &mdash; translating assessment data into ROI narratives that drive contract renewals.
         </p>
 
-        <div class="dashboard-section fade-up" style="border: 2px solid rgba(255,107,74,0.08);">
+        <div class="dashboard-section fade-up" style="border: 2px solid rgba(0,191,166,0.08);">
             <div class="dash-header">
                 <h3>Fortune 500 Client: Contact Center Assessment Outcomes</h3>
                 <div class="dash-tabs">
@@ -1101,7 +1098,7 @@
 
         <div class="insight-callout fade-up" style="margin-top: 2rem;">
             <div class="ic-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00bfa6" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
                 <h4>Immediate Value Unlock</h4>
@@ -1160,7 +1157,7 @@
 <!-- Value Alignment -->
 <section id="alignment" style="background: white;">
     <div class="section-inner">
-        <span class="section-label indigo">Candidate Alignment</span>
+        <span class="section-label navy">Candidate Alignment</span>
         <h2 class="section-title">Why Ebenezer Osei</h2>
         <p class="section-subtitle">
             How my experience, skills, and approach map directly to what this Senior Data Analyst role demands.
@@ -1186,7 +1183,7 @@
                 <div>
                     <h4>Statistical Foundation &amp; ML</h4>
                     <p>Strong proficiency in regression, hypothesis testing, correlation analysis, and model evaluation. Hands-on experience applying Random Forest and XGBoost for prediction tasks &mdash; exactly what Harver's outcome studies demand.</p>
-                    <span class="align-tag peach">Regression &bull; ML Models &bull; Model Evaluation</span>
+                    <span class="align-tag teal">Regression &bull; ML Models &bull; Model Evaluation</span>
                 </div>
             </div>
             <div class="align-card">
@@ -1196,7 +1193,7 @@
                 <div>
                     <h4>Python, R &amp; SQL Proficiency</h4>
                     <p>Deep expertise across the full data stack: pandas and dplyr for wrangling, SQL for extraction, and visualization libraries (matplotlib, ggplot2, Plotly) for client-ready outputs. GitHub for version-controlled, peer-reviewed workflows.</p>
-                    <span class="align-tag indigo">Python &bull; R &bull; SQL &bull; GitHub</span>
+                    <span class="align-tag navy">Python &bull; R &bull; SQL &bull; GitHub</span>
                 </div>
             </div>
             <div class="align-card">
@@ -1216,7 +1213,7 @@
                 <div>
                     <h4>Client-Facing Communication</h4>
                     <p>Strong ability to translate statistical results into business language. I build visualizations and reports that make complex validity studies accessible to non-technical client stakeholders and C-suite executives.</p>
-                    <span class="align-tag peach">Data Storytelling &bull; Client Reports &bull; Presentations</span>
+                    <span class="align-tag teal">Data Storytelling &bull; Client Reports &bull; Presentations</span>
                 </div>
             </div>
             <div class="align-card">
@@ -1226,7 +1223,7 @@
                 <div>
                     <h4>Fairness &amp; Compliance Mindset</h4>
                     <p>Understands the weight of adverse impact analysis in hiring. Committed to ensuring assessments are both predictive and fair &mdash; applying the 4/5 rule, analyzing demographic breakdowns, and flagging potential disparities proactively.</p>
-                    <span class="align-tag indigo">EEOC &bull; Adverse Impact &bull; Assessment Fairness</span>
+                    <span class="align-tag navy">EEOC &bull; Adverse Impact &bull; Assessment Fairness</span>
                 </div>
             </div>
             <div class="align-card">
@@ -1310,13 +1307,13 @@ function formatCurrency(val) {
 
 // ── Charts ──
 const chartColors = {
-    peach: '#ff6b4a',
-    indigo: '#4f46e5',
-    teal: '#14b8a6',
+    teal: '#00bfa6',
+    navy: '#0a1628',
+    cyan: '#00d4aa',
     amber: '#f59e0b',
     green: '#22c55e',
-    peachLight: 'rgba(255,107,74,0.1)',
-    indigoLight: 'rgba(79,70,229,0.1)',
+    tealLight: 'rgba(0,191,166,0.1)',
+    navyLight: 'rgba(10,22,40,0.1)',
 };
 
 // Validity Chart - Score Quintile vs Performance
@@ -1332,8 +1329,8 @@ new Chart(validityCtx, {
                 backgroundColor: [
                     'rgba(239,68,68,0.7)',
                     'rgba(245,158,11,0.7)',
-                    'rgba(79,70,229,0.7)',
-                    'rgba(20,184,166,0.7)',
+                    'rgba(0,191,166,0.7)',
+                    'rgba(0,212,170,0.7)',
                     'rgba(34,197,94,0.7)',
                 ],
                 borderRadius: 8,
@@ -1388,7 +1385,7 @@ new Chart(retentionCtx, {
             data: [92, 78, 54],
             backgroundColor: [
                 chartColors.green,
-                chartColors.indigo,
+                chartColors.navy,
                 'rgba(239,68,68,0.7)',
             ],
             borderWidth: 0,
